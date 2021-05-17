@@ -8,7 +8,7 @@ export function args() {
   const args = [];
   const afterArgs = [];
 
-  process.argv.slice(2).forEach((arg) => {
+  for (const arg of process.argv.slice(2)) {
     if (arg === "--version" || arg === "-v") {
       return { showVersion: true };
     }
@@ -24,9 +24,9 @@ export function args() {
     } else {
       args.push(arg);
     }
+  }
 
-    return { args, afterArgs };
-  });
+  return { args, afterArgs };
 }
 
 export function packageVersion() {
